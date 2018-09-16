@@ -192,13 +192,20 @@ return
 #If WinActive("ahk_exe imv.exe")
   a::Left
   d::Right
+  l::Right
+  h::Left
   +Space::
     Send {Left}
   return
   b::l
-  l::b
+  ; preserve default behaviour
   #a::#a
   #d::#d
+  ^#h::^#h
+  ^#b::^#b
+  ^#l::^#l
+  !#h::^#h
+  !#l::^#l
 #if
 
 ; RWin

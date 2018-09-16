@@ -2,12 +2,14 @@
 #Notrayicon
 
 SetTimer, DrawRect, 50
-border_thickness = 2 ;6
+border_thickness = 6
 ; some cute colors
 ;#EA91A9
 ;#755b76
 ;#B54B3E
 ;#F0696F
+;#F0686F
+;#F0AA6F
 ;#C0BFBF
 ;#FFB7C5
 ;#E9D6F3
@@ -15,7 +17,7 @@ border_thickness = 2 ;6
 ;#C0BFBF
 ;#FFF8E7
 border_color = F0696F
-transparency_border = 255 ;60
+transparency_border = 150
 
 DrawRect:
 WinGetPos, x, y, w, h, A
