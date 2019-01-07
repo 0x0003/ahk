@@ -16,8 +16,9 @@ border_thickness = 6
 ;#E8CCD7
 ;#C0BFBF
 ;#FFF8E7
-border_color = F0696F
-transparency_border = 150
+;#E9999D
+border_color = EEEEEE
+transparency_border = 75
 
 DrawRect:
 WinGetPos, x, y, w, h, A

@@ -160,6 +160,7 @@ return
 ; ff
 #If WinActive("ahk_exe firefox.exe")
   ^e::^l   ;focus urlbar
+  ^#e::^#e
 #if
 
 ; terminal
@@ -223,6 +224,12 @@ return
   else IfWinNotExist, activeborder.ahk ahk_class AutoHotkey
     Run, activeborder.ahk
   DetectHiddenWindows, Off
+return
+
+; mute/unmute mic
+; either 6 or 7
+#^a::
+  SoundSet, +1, MASTER, Mute, 6
 return
 
 ; reload script
