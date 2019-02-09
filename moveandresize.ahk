@@ -1,4 +1,4 @@
-; move function
+; move
 wm(rx, ry)
 {
   WinExist("A")
@@ -8,7 +8,7 @@ wm(rx, ry)
   WinMove,A,,%rrx%, %rry%,,
 }
 
-; resize function
+; resize
 wr(rx, ry, rh, rw)
 {
   WinExist("A")

@@ -226,6 +226,11 @@ return
   DetectHiddenWindows, Off
 return
 
+; make window be always on top
+#^w::
+  Winset, Alwaysontop, , A
+return
+
 ; mute/unmute mic
 ; either 6 or 7
 #^a::
