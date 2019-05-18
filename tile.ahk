@@ -67,6 +67,15 @@ NumpadClear::
   return
 #if
 
+;firefox - 1920x1080
+#If WinActive("ahk_exe firefox.exe")
+NumpadClear::
+  WinMove,A,,,, 1920, 1080
+  sleep 10
+  CenterWindow(A)
+  return
+#if
+
 ;fb2k
 #If WinActive("ahk_exe foobar2000.exe")
 NumpadClear::
