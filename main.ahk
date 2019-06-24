@@ -3,7 +3,7 @@
 #KeyHistory 0
 #Notrayicon
 #Persistent
-#NoEnv ; Recommended for performance and compatibility /w future AHK releases
+#NoEnv ; Recommended for performance and compatibility n/w future AHK releases
 ;#Warn ; Recommended for catching common errors
 SendMode Input ; Recommended for new scripts
 SetWorkingDir %A_ScriptDir% ; Consistent starting directory
@@ -238,6 +238,9 @@ return
 return
 
 ;; mpv global hotkeys
+;#v::
+;  Process, Close, mpv.exe
+;return
 ;; pause
 ;+^p::
 ;  DetectHiddenWindows, On
@@ -264,6 +267,24 @@ return
 ;  DetectHiddenWindows, Off
 ;  IfWinActive, ahk_class mpv
 ;    Send {9}
+;return
+;; next
+;+^>::
+;  DetectHiddenWindows, On
+;  IfWinNotActive, ahk_class mpv
+;    ControlSend,, n, ahk_class mpv
+;  DetectHiddenWindows, Off
+;  IfWinActive, ahk_class mpv
+;    Send {n}
+;return
+;; prev
+;+^<::
+;  DetectHiddenWindows, On
+;  IfWinNotActive, ahk_class mpv
+;    ControlSend,, p, ahk_class mpv
+;  DetectHiddenWindows, Off
+;  IfWinActive, ahk_class mpv
+;    Send {p}
 ;return
 
 ; reload script
