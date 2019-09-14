@@ -151,11 +151,10 @@ IfWinExist %currentWindow%
 }
 return
 
-; remap caps
-$CapsLock::Esc
-return
-!CapsLock::CapsLock
-return
+; swap caps and esc (overrides MS IME shortcuts)
+$sc03A::sc001
+$Esc::CapsLock
+;^sc03A::!sc029
 
 ; ff
 #If WinActive("ahk_exe firefox.exe")
