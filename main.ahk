@@ -66,57 +66,64 @@ AdjustWindow(id)
 ;  Processes/classes go here
 ;  WinSet, Style, -0x40000, A  ; WS_THICKFRAME
 
-  ;Explorer caption
+  ; Explorer caption
   If WinClass In % "CabinetWClass"
   If WinProcess In % "explorer.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
   }
 
-  ;qBitTorrent
+  ; qBitTorrent
   If WinProcess In % "qbittorrent.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     WinSet, Style, -0x40000, %WinTitle%
   }
 
-  ;Anki caption
+  ; Anki caption
   If WinProcess In % "anki.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
   }
 
-  ;Notepad caption
+  ; Notepad caption
   If WinProcess In % "notepad.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
   }
 
-  ;Mintty
+  ; Mintty
   If WinProcess In % "mintty.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     WinSet, Style, -0x40000, %WinTitle%
   }
 
-  ;Firefox thickframe
+  ; Firefox thickframe
   If WinProcess In % "firefox.exe"
   {
     Winset, Style, -0x40000, %WinTitle%
   }
 
-  ;Nomacs
+  ; Nomacs
   If WinProcess In % "nomacs.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     Winset, Style, -0x40000, %WinTitle%
   }
 
-  ;SumatraPDF
+  ; SumatraPDF
   If WinProcess In % "SumatraPDF.exe"
   {
     winset, style, -0xc00000, %wintitle%
     winset, style, -0x40000, %wintitle%
+  }
+
+  ; Volume mixer
+  If WinProcess In % "SndVol.exe"
+  {
+    WinSet, Style, -0xC00000, %WinTitle%
+    Winset, Style, -0x40000, %WinTitle%
   }
 
   ; Uncomment this and comment section above
@@ -175,6 +182,13 @@ return
 ; foobar
 #v::
   run, C:\Apps\players\Foobar2000\foobar2000.exe
+return
+
+; volume mixer
+#m::
+  run, SndVol.exe
+  sleep 200
+  WinMove, A,,,, 1440
 return
 
 ; vi-like controls in blackbox menu
