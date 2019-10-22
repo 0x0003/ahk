@@ -57,8 +57,15 @@ return
 #x::
   WinMove,A,, 0, 0, A_ScreenWidth, A_ScreenHeight
 return
+;win+k - 1080
+#k::
+  WinMove,A,,,, 1920, 1080
+  sleep 10
+  WinGetPos,,, Width, Height, A
+  WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+return
 
-;mpv - 1080p
+;mpv - 1080
 #If WinActive("ahk_exe mpv.exe")
 NumpadClear::
   WinMove,A,,,, 1920, 1080
@@ -67,7 +74,7 @@ NumpadClear::
   return
 #if
 
-;firefox - 1920x1080
+;firefox - 1080
 #If WinActive("ahk_exe firefox.exe")
 NumpadClear::
   WinMove,A,,,, 1920, 1080
