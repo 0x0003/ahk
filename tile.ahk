@@ -132,6 +132,10 @@ return
 NumpadLeft::
   WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
 return
+;alternative - win+shift+y
++#y::
+  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
+return
 ;1
 NumpadEnd::
   WinMove,A,, %MarginWidth%, %LowerOffset%, %WindowNormalWidth%, %WindowHalfHeight%
@@ -144,36 +148,36 @@ return
 NumpadRight::
   WinMove,A,, %NormalFarLeftOffset%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
 return
+;alternative - win+shift+u
++#u::
+  WinMove,A,, %NormalFarLeftOffset%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
+return
 ;3
 NumpadPgDn::
   WinMove,A,, %NormalFarLeftOffset%, %LowerOffset%, %WindowNormalWidth%, %WindowHalfHeight%
 return
 
-; =====alternative
+; teleport to corners
 ;win+
-;y
+;y - upper left
 #y::
-  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowHalfHeight%
+  WinGetPos,,, Width, Height, A
+  WinMove,A,, 0+(MarginWidth), 0+(MarginWidth)
 return
-;shift+b
-+#y::
-  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
-return
-;b
+;b - lower left
 #b::
-  WinMove,A,, %MarginWidth%, %LowerOffset%, %WindowNormalWidth%, %WindowHalfHeight%
+  WinGetPos,,, Width, Height, A
+  WinMove,A,, 0+(MarginWidth), (A_ScreenHeight)-(Height)-(MarginWidth)
 return
-;u
+;u - upper right
 #u::
-  WinMove,A,, %NormalFarLeftOffset%, %MarginWidth%, %WindowNormalWidth%, %WindowHalfHeight%
+  WinGetPos,,, Width, Height, A
+  WinMove,A,, (A_ScreenWidth)-(Width)-(MarginWidth), 0+(MarginWidth)
 return
-;shift+n
-+#u::
-  WinMove,A,, %NormalFarLeftOffset%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
-return
-;n
+;n - lower right
 #n::
-  WinMove,A,, %NormalFarLeftOffset%, %LowerOffset%, %WindowNormalWidth%, %WindowHalfHeight%
+  WinGetPos,,, Width, Height, A
+  WinMove,A,, (A_ScreenWidth)-(Width)-(MarginWidth), (A_ScreenHeight)-(Height)-(MarginWidth)
 return
 
 ; -------------------- Small windows
