@@ -3,7 +3,7 @@
 
 SetTimer, DrawRect, 50
 border_thickness = 6
-; some cute colors
+; colors
 ;#EA91A9
 ;#755b76
 ;#B54B3E
@@ -18,7 +18,7 @@ border_thickness = 6
 ;#FFF8E7
 ;#E9999D
 border_color = EEEEEE
-transparency_border = 75
+border_transparency = 75
 
 DrawRect:
 WinGetPos, x, y, w, h, A
@@ -88,7 +88,7 @@ Gui, -Caption
 
 WinSet, Region, %outerX%-%outerY% %outerX2%-%outerY% %outerX2%-%outerY2% %outerX%-%outerY2% %outerX%-%outerY%    %innerX%-%innerY% %innerX2%-%innerY% %innerX2%-%innerY2% %innerX%-%innerY2% %innerX%-%innerY%
 
-WinSet, Transparent, % transparency_border
+WinSet, Transparent, % border_transparency
 Gui, Show, w%newW% h%newH% x%newX% y%newY% NoActivate, Table awaiting Action
 return
 

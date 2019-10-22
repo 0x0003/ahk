@@ -86,7 +86,7 @@ NumpadClear::
 ;fb2k
 #If WinActive("ahk_exe foobar2000.exe")
 NumpadClear::
-  WinMove,A,,,, 588, 420 ;- main window > borders > no caption
+  WinMove,A,,,, 905, 460 ;- main window > borders > no caption
   sleep 10
   CenterWindow(A)
   return
