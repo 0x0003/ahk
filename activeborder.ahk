@@ -2,7 +2,7 @@
 #Notrayicon
 
 SetTimer, DrawRect, 50
-border_thickness = 6
+border_thickness = 4
 ; colors
 ;#EA91A9
 ;#755b76

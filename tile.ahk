@@ -45,15 +45,15 @@ return
   WinGetPos,,, Width, Height, A
   WinMove, A,, (Width-%MarginWidth%), (A_ScreenHeight/2)-(Height/2)
 return
-;shift+8 - Pseudo fullscreen w/ taskbar
+;shift+8 - pseudo fullscreen w/ taskbar
 +NumpadUp::
   WinMove,A,, 0, %MarginWidth%, A_ScreenWidth, A_ScreenHeight-MarginWidth
 return
-;shift+2 - Pseudo fullscreen w/o taskbar
+;shift+2 - pseudo fullscreen w/o taskbar
 +NumpadDown::
   WinMove,A,, 0, 0, A_ScreenWidth, A_ScreenHeight
 return
-;win+x - Pseudo fullscreen w/o taskbar
+;win+x - pseudo fullscreen w/o taskbar
 #x::
   WinMove,A,, 0, 0, A_ScreenWidth, A_ScreenHeight
 return
@@ -64,7 +64,7 @@ return
   WinGetPos,,, Width, Height, A
   WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 return
-;win+l - default terminal size
+;win+l - default terminal size@9pt
 #l::
   WinMove,A,,,, 582, 391
 return
@@ -91,6 +91,15 @@ NumpadClear::
 #If WinActive("ahk_exe foobar2000.exe")
 NumpadClear::
   WinMove,A,,,, 905, 460 ;- main window > borders > no caption
+  sleep 10
+  CenterWindow(A)
+  return
+#if
+
+;rpgmaker games
+#IF WinActive("ahk_exe Game.exe")
+NumpadClear::
+  WinMove,A,,,, 846, 695
   sleep 10
   CenterWindow(A)
   return

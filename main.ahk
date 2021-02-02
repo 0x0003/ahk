@@ -107,6 +107,13 @@ AdjustWindow(id)
     WinSet, Style, +0xC00000, %WinTitle%
   }
 
+  ; Chromium
+  If WinProcess In % "chrome.exe"
+  {
+    WinSet, Style, -0xC00000, %WinTitle%
+    WinSet, Style, -0x40000, %WinTitle%
+  }
+
   ; Nomacs
   If WinProcess In % "nomacs.exe"
   {
