@@ -1,8 +1,9 @@
+#KeyHistory 0
 #Persistent
 #Notrayicon
 
 SetTimer, DrawRect, 50
-border_thickness = 4
+border_thickness = 2
 ; colors
 ;#EA91A9
 ;#755b76
@@ -17,8 +18,9 @@ border_thickness = 4
 ;#C0BFBF
 ;#FFF8E7
 ;#E9999D
+;#FF768C
 border_color = EEEEEE
-border_transparency = 75
+border_transparency = 95 ; 75
 
 DrawRect:
 WinGetPos, x, y, w, h, A

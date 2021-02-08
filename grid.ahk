@@ -1,5 +1,6 @@
 CoordMode, Mouse, Screen
 CoordMode, Pixel, Screen
+#KeyHistory 0
 #SingleInstance, Force
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Recommended for catching common errors.
