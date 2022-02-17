@@ -3,9 +3,9 @@
 #KeyHistory 0
 #Notrayicon
 #Persistent
-#NoEnv ; Recommended for performance and compatibility n/w future AHK releases
-;#Warn ; Recommended for catching common errors
-SendMode Input ; Recommended for new scripts
+#NoEnv
+; #Warn
+SendMode Input
 SetWorkingDir %A_ScriptDir% ; Consistent starting directory
 CoordMode, Mouse, Screen
 CoordMode, Pixel, Screen
@@ -252,6 +252,15 @@ return
 #^w::
   Winset, Alwaysontop, , A
 return
+
+; window transparency
+#^t::
+  WinSet, Transparent, Off, A
+return
+#!t::
+  WinSet, Transparent, 210, A
+return
+
 
 ; mute/unmute mic
 ; either 6 or 7
