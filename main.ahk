@@ -135,6 +135,14 @@ AdjustWindow(id)
     Winset, Style, -0x40000, %WinTitle%
   }
 
+  ; Sil-Q
+  If WinProcess In % "sil.exe"
+  {
+    WinSet, Style, -0xC00000, %WinTitle%
+    WinSet, Style, -0x40000, %WinTitle%
+  }
+
+
   ; Uncomment this and comment section above
   ; if you want it to work on every window
   ; WinSet, Style, -0xC00000, %WinTitle%
