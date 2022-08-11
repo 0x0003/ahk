@@ -276,56 +276,6 @@ return
   SoundSet, +1, MASTER, Mute, 6
 return
 
-;; mpv global hotkeys
-;#v::
-;  Process, Close, mpv.exe
-;return
-;; pause
-;+^p::
-;  DetectHiddenWindows, On
-;  IfWinNotActive, ahk_class mpv
-;    ControlSend,, {Space}, ahk_class mpv
-;  DetectHiddenWindows Off
-;  IfWinActive, ahk_class mpv
-;    Send {Space}
-;return
-;; vol up
-;+^'::
-;  DetectHiddenWindows, On
-;  IfWinNotActive, ahk_class mpv
-;    ControlSend,, 0, ahk_class mpv
-;  DetectHiddenWindows, Off
-;  IfWinActive, ahk_class mpv
-;    Send {0}
-;return
-;; vol down
-;+^;::
-;  DetectHiddenWindows, On
-;  IfWinNotActive, ahk_class mpv
-;    ControlSend,, 9, ahk_class mpv
-;  DetectHiddenWindows, Off
-;  IfWinActive, ahk_class mpv
-;    Send {9}
-;return
-;; next
-;+^>::
-;  DetectHiddenWindows, On
-;  IfWinNotActive, ahk_class mpv
-;    ControlSend,, n, ahk_class mpv
-;  DetectHiddenWindows, Off
-;  IfWinActive, ahk_class mpv
-;    Send {n}
-;return
-;; prev
-;+^<::
-;  DetectHiddenWindows, On
-;  IfWinNotActive, ahk_class mpv
-;    ControlSend,, p, ahk_class mpv
-;  DetectHiddenWindows, Off
-;  IfWinActive, ahk_class mpv
-;    Send {p}
-;return
-
 ; reload script
 !#r::
   WinClose, grid.ahk,,, gridPid
