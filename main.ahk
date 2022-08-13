@@ -128,6 +128,13 @@ AdjustWindow(id)
     winset, style, -0x40000, %wintitle%
   }
 
+  ; sioyek
+  If WinProcess In % "sioyek.exe"
+  {
+    winset, style, -0xc00000, %wintitle%
+    winset, style, -0x40000, %wintitle%
+  }
+
   ; Volume mixer
   If WinProcess In % "SndVol.exe"
   {
