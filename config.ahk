@@ -89,16 +89,14 @@ HotkeyResize := "RButton"
 HotkeyMoveResize := ""
 
 
-; tiling/moving/resizing vars
+; tiling/moving/resizing variables
 MovePix := 50
 SlowMovePix := 10
 LowerOffset := A_ScreenHeight/2+MarginWidth/2
 WindowFullHeight := A_ScreenHeight-MarginWidth*2
-if mod(MarginWidth,2)=0
-{
+if mod (MarginWidth,2) = 0 {
   WindowHalfHeight := WindowFullHeight/2-MarginWidth/2
-} else
-{
+} else {
   WindowHalfHeight := WindowFullHeight/2-MarginWidth/2+1
 }
 

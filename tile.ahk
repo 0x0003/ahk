@@ -5,10 +5,6 @@ CenterWindow(WinTitle)
   WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 }
 
-; tiling section
-; all variables can be found in config
-; NOTE: numlock should be off in order for mappings to work
-
 ; ------------------- Unique
 ;5 - fullscreen with gaps
 NumpadClear::
