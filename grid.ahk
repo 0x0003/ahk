@@ -3,6 +3,7 @@ CoordMode, Pixel, Screen
 #KeyHistory 0
 #SingleInstance, Force
 #NoEnv
+#Notrayicon
 ; #Warn
 SendMode Input
 SetWorkingDir %A_ScriptDir% ; Consistent starting directory
@@ -15,9 +16,6 @@ SysGet, ScreenW, 78 ; SM_CXVIRTUALSCREEN
 SysGet, ScreenH, 79 ; SM_CYVIRTUALSCREEN
 
 #include config.ahk
-
-if (NoTrayIcon)
-  Menu, Tray, NoIcon
 
 if (HotkeyMove)
   Hotkey, % HotkeyModifier . HotkeyMove, MoveWindow

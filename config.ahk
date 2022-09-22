@@ -24,9 +24,6 @@ H[3] := [ ScreenY+ScreenH,       1,  3,  1, 0 ]
 
 
 
-; Hide Tray Icon
-NoTrayIcon := True
-
 ; Gaps (px)
 MarginWidth := 15
 
