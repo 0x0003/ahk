@@ -214,7 +214,7 @@ $Esc::CapsLock
 return
 ^#Space::
   ; WinActivate Program Manager ; desktop
-  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml, C:\Users\anon
+  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml, C:\Users\%A_Username%
 return
 
 ; foobar
