@@ -192,7 +192,7 @@ IfWinExist %currentWindow%
 }
 return
 
-; swap caps and esc (overrides MS IME shortcuts)
+; swap caps and esc (IME-compatible)
 $sc03A::sc001
 $Esc::CapsLock
 ;^sc03A::!sc029
@@ -202,20 +202,6 @@ $Esc::CapsLock
   ^e::^l   ;focus urlbar
   ^#e::^#e
 #if
-
-; terminal
-#Space::
-  ; NOTE: the spawned window doesn't gain focus
-  ; WinActivate Program Manager ; messes with last focus
-  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml --command wsl, \\wsl.localhost\Arch\home\tuna,,PID
-  WinWait ahk_pid %PID%
-  Sleep, 300
-  WinActivate, ahk_pid %PID%
-return
-^#Space::
-  ; WinActivate Program Manager ; desktop
-  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml, C:\Users\%A_Username%
-return
 
 ; foobar
 #v::
@@ -228,17 +214,6 @@ return
   sleep 200
   WinMove, A,,,, 1440
 return
-
-; vi-like controls in blackbox menu
-#If WinActive("ahk_class BBMenu")
-  h::Left
-  j::Down
-  k::Up
-  l::Right
-  o::Enter
-  g::Home
-  +g::End
-#if
 
 ; stb-imv
 #If WinActive("ahk_exe imv.exe")
@@ -296,7 +271,7 @@ return
 ;  SoundSet, +1, MASTER, Mute, 6
 ;return
 
-; reload script
+; reload the script
 !#r::
   WinClose, grid.ahk,,, gridPid
   Reload

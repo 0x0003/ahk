@@ -122,6 +122,20 @@ return
   WinActivate, ahk_exe ueli.exe
 return
 
+; terminal
+#Space::
+  ; NOTE: the spawned window doesn't gain focus
+  ; WinActivate Program Manager ; messes with last focus
+  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml --command wsl, \\wsl.localhost\Arch\home\tuna,,PID
+  WinWait ahk_pid %PID%
+  Sleep, 300
+  WinActivate, ahk_pid %PID%
+return
+^#Space::
+  ; WinActivate Program Manager ; desktop
+  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml, C:\Users\%A_Username%
+return
+
 ; multimedia controls
 ; ^+p::Media_Play_Pause
 ; ^+;::Volume_Down
