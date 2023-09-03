@@ -204,14 +204,6 @@ $Esc::CapsLock
 #if
 
 ; terminal
-;^#Space::
-;  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
-;  sleep 200
-;  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
-;return
-;#Space::
-;  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
-;return
 #Space::
   ; NOTE: the spawned window doesn't gain focus
   ; WinActivate Program Manager ; messes with last focus
