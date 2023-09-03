@@ -1,6 +1,5 @@
 ; move
-wm(rx, ry)
-{
+wm(rx, ry) {
   WinExist("A")
   WinGetPos, x, y,,
   rrx := rx + x
@@ -9,8 +8,7 @@ wm(rx, ry)
 }
 
 ; resize
-wr(rx, ry, rh, rw)
-{
+wr(rx, ry, rh, rw) {
   WinExist("A")
   WinGetPos, x, y, height, width
   rrx := rx + x
@@ -148,7 +146,7 @@ return
 ;  wr(0-SlowMovePix, 0+SlowMovePix, 0-SlowMovePix, 0-SlowMovePix)
 ;return
 
-; ------------------- lmb drag
+; ------------------- meta+lmb drag
 #LButton::
 CoordMode, Mouse  ; switch to absolute coords
 MouseGetPos, EWD_MouseStartX, EWD_MouseStartY, EWD_MouseWin

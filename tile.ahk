@@ -1,9 +1,12 @@
 ; Center window using its current size
-CenterWindow(WinTitle)
-{
+CenterWindow(WinTitle) {
   WinGetPos,,, Width, Height, %WinTitle%
   WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 }
+
+; tiling section
+; all variables can be found in config
+; NOTE: numlock should be off in order for mappings to work
 
 ; ------------------- Unique
 ;5 - fullscreen with gaps
@@ -50,7 +53,7 @@ return
   WinMove,A,, 0, 0, A_ScreenWidth, A_ScreenHeight
 return
 ;win+x - pseudo fullscreen w/o taskbar
-#x::
+^#x::
   WinMove,A,, 0, 0, A_ScreenWidth, A_ScreenHeight
 return
 ;win+k - 1080

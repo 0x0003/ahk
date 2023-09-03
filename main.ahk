@@ -4,6 +4,7 @@
 #Notrayicon
 #Persistent
 #NoEnv
+#MaxThreads 255
 ; #Warn
 SendMode Input
 SetWorkingDir %A_ScriptDir% ; Consistent starting directory
@@ -17,7 +18,7 @@ SetTitleMatchMode, 2
 Run, grid.ahk,,, gridPid
 #include config.ahk
 
-; ------------------- main hook
+; ------------------- window decorations
 ; Uncomment this if you want a hotkey to set it for every window
 ; !+r::GoSub, AdjustAllWindows
 
@@ -35,10 +36,8 @@ HookWindow:
   MsgNum := DllCall( "RegisterWindowMessage", Str,"SHELLHOOK" )
   OnMessage( MsgNum, "ShellMessage" )
 
-  ShellMessage(wParam,lParam)
-  {
-    If (wParam = 1) ;  HSHELL_WINDOWCREATED := 1
-    {
+  ShellMessage(wParam,lParam) {
+    If (wParam = 1) { ;  HSHELL_WINDOWCREATED := 1
       Sleep, 10
       AdjustWindow(lParam)
     }
@@ -46,15 +45,13 @@ HookWindow:
 Return
 
 ; Adjust Window
-AdjustWindow(id)
-{
+AdjustWindow(id) {
   WinId := id
   WinTitle := id = "A" ? "A" : "ahk_id " . id
 
   ; check if the window is in alt-tab menu
   WinGet, WinExStyle, ExStyle, %WinTitle%
-  If (WinExStyle & 0x80)
-  {
+  If (WinExStyle & 0x80) {
     Return
   }
 
@@ -67,11 +64,11 @@ AdjustWindow(id)
 ;  WinSet, Style, -0x40000, A  ; WS_THICKFRAME
 
   ; Explorer caption
-  If WinClass In % "CabinetWClass"
-  If WinProcess In % "explorer.exe"
-  {
-    WinSet, Style, -0xC00000, %WinTitle%
-  }
+  ;If WinClass In % "CabinetWClass"
+  ;If WinProcess In % "explorer.exe"
+  ;{
+  ;  WinSet, Style, -0xC00000, %WinTitle%
+  ;}
 
   ; qBitTorrent
   If WinProcess In % "qbittorrent.exe"
@@ -108,14 +105,28 @@ AdjustWindow(id)
   }
 
   ; Chromium
-  If WinProcess In % "chrome.exe"
+  ;If WinProcess In % "chrome.exe"
+  ;{
+  ;  WinSet, Style, -0xC00000, %WinTitle%
+  ;  WinSet, Style, -0x40000, %WinTitle%
+  ;}
+
+  ; Qutebrowser thickframe
+  If WinProcess In % "qutebrowser.exe"
   {
-    WinSet, Style, -0xC00000, %WinTitle%
-    WinSet, Style, -0x40000, %WinTitle%
+   ;WinSet, Style, -0xC00000, %WinTitle%
+   WinSet, Style, -0x40000, %WinTitle%
   }
 
   ; Nomacs
-  If WinProcess In % "nomacs.exe"
+  ; If WinProcess In % "nomacs.exe"
+  ; {
+  ;   WinSet, Style, -0xC00000, %WinTitle%
+  ;   Winset, Style, -0x40000, %WinTitle%
+  ; }
+
+  ; qimgv
+  If WinProcess In % "qimgv.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     Winset, Style, -0x40000, %WinTitle%
@@ -146,9 +157,8 @@ AdjustWindow(id)
   If WinProcess In % "sil.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
-    WinSet, Style, -0x40000, %WinTitle%
+    Winset, Style, -0x40000, %WinTitle%
   }
-
 
   ; Uncomment this and comment section above
   ; if you want it to work on every window
@@ -157,8 +167,7 @@ AdjustWindow(id)
 
 AdjustAllWindows:
 WinGet, id, list,,, Program Manager
-  Loop, %id%
-  {
+  Loop, %id% {
     AdjustWindow(id%A_Index%)
   }
 Return
@@ -179,6 +188,7 @@ WinGetTitle, currentWindow, A
 IfWinExist %currentWindow%
 {
   WinSet, Style, ^0x40000, A
+  ; WinSet, Style, ^0x800000, A
 }
 return
 
@@ -194,18 +204,30 @@ $Esc::CapsLock
 #if
 
 ; terminal
-^#Space::
-  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
-  sleep 200
-  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
-return
+;^#Space::
+;  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
+;  sleep 200
+;  WinMove,A,, %MarginWidth%, %MarginWidth%, %WindowNormalWidth%, %WindowFullHeight%
+;return
+;#Space::
+;  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
+;return
 #Space::
-  run, C:\Cygwin\bin\mintty.exe /usr/bin/fish --login
+  ; NOTE: the spawned window doesn't gain focus
+  ; WinActivate Program Manager ; messes with last focus
+  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml --command wsl, \\wsl.localhost\Arch\home\tuna,,PID
+  WinWait ahk_pid %PID%
+  Sleep, 300
+  WinActivate, ahk_pid %PID%
+return
+^#Space::
+  ; WinActivate Program Manager ; desktop
+  run, D:\Software\term\alacritty\alacritty.exe --config-file D:\Software\term\alacritty\config.yml, C:\Users\anon
 return
 
 ; foobar
 #v::
-  run, C:\Apps\players\Foobar2000\foobar2000.exe
+  run, D:\Software\players\Foobar2000\foobar2000.exe
 return
 
 ; volume mixer
@@ -263,7 +285,7 @@ return
   DetectHiddenWindows, Off
 return
 
-; make window be always on top
+; make a window be always on top
 #^w::
   Winset, Alwaysontop, , A
 return
@@ -276,12 +298,11 @@ return
   WinSet, Transparent, 210, A
 return
 
-
 ; mute/unmute mic
 ; either 6 or 7
-#^a::
-  SoundSet, +1, MASTER, Mute, 6
-return
+;#^a::
+;  SoundSet, +1, MASTER, Mute, 6
+;return
 
 ; reload script
 !#r::
@@ -292,4 +313,4 @@ return
 ; ------------------- source other modules
 #include tile.ahk
 #include moveandresize.ahk
-
+#include w10.ahk
