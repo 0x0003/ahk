@@ -63,10 +63,10 @@ return
   WinGetPos,,, Width, Height, A
   WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 return
-;win+l - default terminal size@9pt
-#l::
-  WinMove,A,,,, 582, 391
-return
+;;win+l - default terminal size@9pt
+; #l::
+;   WinMove,A,,,, 582, 391
+; return
 
 ;mpv - 1080
 #If WinActive("ahk_exe mpv.exe")
