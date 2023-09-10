@@ -77,10 +77,11 @@ AdjustWindow(id) {
     WinSet, Style, -0x40000, %WinTitle%
   }
 
-  ; Anki caption
+  ; Anki
   If WinProcess In % "anki.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
+    WinSet, Style, -0x40000, %WinTitle%
   }
 
   ; Notepad caption
