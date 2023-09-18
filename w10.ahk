@@ -115,13 +115,6 @@ return
   Send, #r
 return
 
-; ueli
-#o::
-  Send, +#o
-  Winset, Alwaysontop, , ahk_exe ueli.exe
-  WinActivate, ahk_exe ueli.exe
-return
-
 ; terminal
 #Space::
   ; NOTE: the spawned window doesn't gain focus
@@ -163,7 +156,7 @@ TBState(opacity,topheight,m) {
 ToggleTaskbar() {
   WinGet, t, transparent, ahk_class Shell_TrayWnd
   if (t != 255) then {
-    ; TBState(255, 30, "Monitor") ; autohide in desktop mode = false; NOTE: causes visual glitches  on some maximized windows
+    ; TBState(255, 30, "Monitor") ; autohide in desktop mode = false; NOTE: causes visual glitches in some maximized windows
     TBState(255, 0, "Monitor") ; autohide in desktop mode = true
   } else {
     TBState(0, 0, "MonitorWorkArea")
@@ -171,27 +164,6 @@ ToggleTaskbar() {
 }
 #t::ToggleTaskbar()
 #.::ToggleTaskbar()
-
-; toggleTaskbar(how_to_toggle) {
-;   static SW_HIDE := 0, SW_SHOWNA := 8, SPI_SETWORKAREA := 0x2F
-;   DetectHiddenWindows, On
-;   hTB := WinExist("ahk_class Shell_TrayWnd")
-;   WinGetPos,,,, H
-;   hBT := WinExist("ahk_class Button ahk_exe Explorer.EXE")  ; for Windows 7
-;   b := DllCall("IsWindowVisible", "Ptr", hTB)
-;   ; always set to false
-;   if (how_to_toggle != -1)
-;   {
-;     b = %how_to_toggle%
-;   }
-;   ; for k, v in [hTB, hBT]
-;   ;   ( v && DllCall("ShowWindow", "Ptr", v, "Int", b ? SW_HIDE : SW_SHOWNA) )
-;   ; VarSetCapacity(RECT, 16, 0)
-;   ; NumPut(A_ScreenWidth, RECT, 8)
-;   ; NumPut(A_ScreenHeight - !b * H, RECT, 12, "UInt")
-;   ; DllCall("SystemParametersInfo", "UInt", SPI_SETWORKAREA, "UInt", 0, "Ptr", &RECT, "UInt", 0)
-; }
-; #t:: toggleTaskbar(-1)
 
 ; mouse bindings when the cursor is over the root window
 MouseIsOver(WinTitle) {
@@ -215,3 +187,4 @@ MouseIsOver(WinTitle) {
   Send, {LWin}
   return
 #if
+
