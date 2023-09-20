@@ -236,6 +236,26 @@ return
   !#l::^#l
 #if
 
+; imageglass
+#If WinActive("ahk_exe ImageGlass.exe")
+  $a::Left
+  $d::Right
+  $l::Right
+  $h::Left
+  $Space::
+    Send {Right}
+  return
+  $+Space::
+    Send {Left}
+  return
+  $b::h
+  $f::
+    WinGet, active, ID, A
+    Send {F10}
+    WinActivate, ahk_id %active%
+  return
+#if
+
 ; RWin
 !^LWin::
   Keywait Ctrl
