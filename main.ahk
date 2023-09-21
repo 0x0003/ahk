@@ -97,12 +97,11 @@ AdjustWindow(id) {
     WinSet, Style, -0x40000, %WinTitle%
   }
 
-  ; Firefox, enable caption to fix flickering
-  ; when window loses focus (ff 63(?)+)
+  ; Firefox
   If WinProcess In % "firefox.exe"
   {
     Winset, Style, -0x40000, %WinTitle%
-    WinSet, Style, +0xC00000, %WinTitle%
+    WinSet, Style, -0xC00000, %WinTitle%
   }
 
   ; Chromium
