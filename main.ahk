@@ -239,8 +239,6 @@ return
 #If WinActive("ahk_exe ImageGlass.exe")
   $a::Left
   $d::Right
-  $l::Right
-  $h::Left
   $Space::
     Send {Right}
   return
