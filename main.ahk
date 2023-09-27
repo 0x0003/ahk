@@ -98,6 +98,7 @@ AdjustWindow(id) {
   }
 
   ; Firefox
+  ; Customize Toolbar > "Title Bar" on
   If WinProcess In % "firefox.exe"
   {
     Winset, Style, -0x40000, %WinTitle%
