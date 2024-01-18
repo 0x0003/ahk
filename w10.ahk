@@ -119,14 +119,14 @@ return
 #Space::
   ; NOTE: the spawned window doesn't gain focus
   ; WinActivate Program Manager ; messes with last focus
-  run,  D:\Scoop\apps\alacritty\current\alacritty.exe --config-file D:\Scoop\persist\alacritty\alacritty.yml --command wsl, \\wsl.localhost\Arch\home\tuna,,PID
+  run,  D:\Scoop\apps\alacritty\current\alacritty.exe --config-file D:\Scoop\persist\alacritty\alacritty.toml --command wsl, \\wsl.localhost\Arch\home\tuna,,PID
   WinWait ahk_pid %PID%
   Sleep, 300
   WinActivate, ahk_pid %PID%
 return
 ^#Space::
   ; WinActivate Program Manager ; desktop
-  run,  D:\Scoop\apps\alacritty\current\alacritty.exe --config-file D:\Scoop\persist\alacritty\alacritty.yml, C:\Users\%A_Username%
+  run,  D:\Scoop\apps\alacritty\current\alacritty.exe --config-file D:\Scoop\persist\alacritty\alacritty.toml, C:\Users\%A_Username%
 return
 
 ; multimedia controls
