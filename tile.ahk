@@ -27,8 +27,15 @@ return
   WinGetPos,,, Width, Height, A
   WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 return
-;win+j - half + center window with bigger gaps
+;win+j - half + center window
 #j::
+  WinMove, A,,,, WindowNormalWidth, WindowFullHeight
+  sleep 10
+  WinGetPos,,, Width, Height, A
+  WinMove, A,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+return
+;win+shift+j - half + center window with bigger gaps
+#+j::
   WinMove, A,,,, WindowNormalWidth-2*16, (WindowFullHeight-10)-2*16
   sleep 10
   WinGetPos,,, Width, Height, A
