@@ -283,6 +283,11 @@ return
 #!t::
   WinSet, Transparent, 210, A
 return
+#If WinActive("ahk_exe alacritty.exe")
+#!t::
+  WinSet, Transparent, 230, A
+  return
+#if
 
 ; mute/unmute mic
 ; either 6 or 7
