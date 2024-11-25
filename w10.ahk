@@ -130,11 +130,11 @@ return
 return
 
 ; multimedia controls
-; ^+p::Media_Play_Pause
-; ^+;::Volume_Down
-; ^+'::Volume_Up
-; ^+,::Media_Prev
-; ^+.::Media_Next
+#p::Media_Play_Pause
+#;::Volume_Down
+#'::Volume_Up
+#,::Media_Prev
+#.::Media_Next
 
 ; show/hide taskbar
 SetWorkArea(left, top, right, bottom) {
@@ -163,7 +163,7 @@ ToggleTaskbar() {
   }
 }
 #t::ToggleTaskbar()
-#.::ToggleTaskbar()
+; #.::ToggleTaskbar()
 
 ; mouse bindings when the cursor is over the root window
 MouseIsOver(WinTitle) {
