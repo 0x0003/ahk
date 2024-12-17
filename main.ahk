@@ -206,7 +206,7 @@ $Esc::CapsLock
 
 ; foobar
 #v::
-  run, D:\Software\players\Foobar2000\foobar2000.exe
+  run, C:\Software\players\Foobar2000\foobar2000.exe
 return
 
 ; volume mixer
