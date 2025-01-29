@@ -14,8 +14,8 @@ SetBatchLines, -1
 SetWinDelay, 2
 SetTitleMatchMode, 2
 
-; run grid and source config
 Run, grid.ahk,,, gridPid
+Run, w10_taskbar.ahk
 #include config.ahk
 
 ; ------------------- window decorations
