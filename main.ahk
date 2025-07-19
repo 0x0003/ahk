@@ -70,7 +70,7 @@ AdjustWindow(id) {
   ;  WinSet, Style, -0xC00000, %WinTitle%
   ;}
 
-  ; qBitTorrent
+  ; qbt
   If WinProcess In % "qbittorrent.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
@@ -105,26 +105,12 @@ AdjustWindow(id) {
     WinSet, Style, -0xC00000, %WinTitle%
   }
 
-  ; Chromium
-  ;If WinProcess In % "chrome.exe"
-  ;{
-  ;  WinSet, Style, -0xC00000, %WinTitle%
-  ;  WinSet, Style, -0x40000, %WinTitle%
-  ;}
-
   ; Qutebrowser thickframe
   If WinProcess In % "qutebrowser.exe"
   {
    ;WinSet, Style, -0xC00000, %WinTitle%
    WinSet, Style, -0x40000, %WinTitle%
   }
-
-  ; Nomacs
-  ; If WinProcess In % "nomacs.exe"
-  ; {
-  ;   WinSet, Style, -0xC00000, %WinTitle%
-  ;   Winset, Style, -0x40000, %WinTitle%
-  ; }
 
   ; qimgv
   If WinProcess In % "qimgv.exe"
@@ -154,8 +140,8 @@ AdjustWindow(id) {
     Winset, Style, -0x40000, %WinTitle%
   }
 
-  ; Sil-Q
-  If WinProcess In % "sil.exe"
+  ; MO2
+  If WinProcess In % "ModOrganizer.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     Winset, Style, -0x40000, %WinTitle%
@@ -271,7 +257,7 @@ return
   DetectHiddenWindows, Off
 return
 
-; make a window be always on top
+; toggle always on top on active window
 #^w::
   Winset, Alwaysontop, , A
 return
