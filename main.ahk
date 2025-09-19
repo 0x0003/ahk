@@ -38,7 +38,7 @@ HookWindow:
 
   ShellMessage(wParam,lParam) {
     If (wParam = 1) { ;  HSHELL_WINDOWCREATED := 1
-      Sleep, 10
+      Sleep, 25 ; 10
       AdjustWindow(lParam)
     }
   }
@@ -58,7 +58,6 @@ AdjustWindow(id) {
   ; Match classes and/or processes
   WinGetClass, WinClass, %WinTitle%
   WinGet, WinProcess, ProcessName, %WinTitle%
-
 
 ;  Processes/classes go here
 ;  WinSet, Style, -0x40000, A  ; WS_THICKFRAME
@@ -142,6 +141,13 @@ AdjustWindow(id) {
 
   ; MO2
   If WinProcess In % "ModOrganizer.exe"
+  {
+    WinSet, Style, -0xC00000, %WinTitle%
+    Winset, Style, -0x40000, %WinTitle%
+  }
+
+  ; nekoray
+  If WinProcess In % "Throne.exe"
   {
     WinSet, Style, -0xC00000, %WinTitle%
     Winset, Style, -0x40000, %WinTitle%
